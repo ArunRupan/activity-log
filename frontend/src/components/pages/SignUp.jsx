@@ -53,7 +53,6 @@ const SignUp = () => {
         dispatch(setCredentials({ ...res }));
         navigate("/home");
       } catch (err) {
-        console.log("error occured");
         // Style this to show error on screen
         console.log(err?.data?.message || err.error);
       }
@@ -94,15 +93,15 @@ const SignUp = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <TextField
+        {/* <TextField
           fullWidth
           type="password"
           label="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        ></TextField>
+        ></TextField> */}
 
-        {/* <FormControl variant="outlined" required fullWidth margin="dense">
+        <FormControl variant="outlined" required fullWidth margin="dense">
           <InputLabel htmlFor="password">Password</InputLabel>
           <OutlinedInput
             id="password"
@@ -119,7 +118,7 @@ const SignUp = () => {
               </InputAdornment>
             }
           />
-        </FormControl> */}
+        </FormControl>
 
         <TextField
           margin="dense"
