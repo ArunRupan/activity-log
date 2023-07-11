@@ -63,8 +63,8 @@ const SignUp = () => {
   return (
     <FormContainer>
       <form
-        action="/"
-        method="post"
+        // action="/"
+        // method="post"
         onSubmit={handleSubmit}
         className="flex flex-col items-center w-full px-10 "
       >
@@ -94,14 +94,15 @@ const SignUp = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        {/* <TextField
+        <TextField
           fullWidth
           type="password"
-          placeholder="Enter password"
+          label="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        ></TextField> */}
-        <FormControl variant="outlined" required fullWidth margin="dense">
+        ></TextField>
+
+        {/* <FormControl variant="outlined" required fullWidth margin="dense">
           <InputLabel htmlFor="password">Password</InputLabel>
           <OutlinedInput
             id="password"
@@ -118,7 +119,17 @@ const SignUp = () => {
               </InputAdornment>
             }
           />
-        </FormControl>
+        </FormControl> */}
+
+        <TextField
+          margin="dense"
+          fullWidth
+          type="password"
+          label="Confirm password"
+          value={confirmPassword}
+          required
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
         {/* <FormControl variant="outlined" required fullWidth margin="dense">
           <InputLabel htmlFor="confirm-password">Confirm password</InputLabel>
           <OutlinedInput
@@ -137,15 +148,6 @@ const SignUp = () => {
             }
           />
         </FormControl> */}
-        <TextField
-          margin="dense"
-          fullWidth
-          type="password"
-          label="Confirm password"
-          value={confirmPassword}
-          required
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
 
         <div className="relative my-3 w-full">
           {isLoading && <Loader />}
