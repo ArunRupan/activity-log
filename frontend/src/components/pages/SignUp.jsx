@@ -53,6 +53,7 @@ const SignUp = () => {
         dispatch(setCredentials({ ...res }));
         navigate("/home");
       } catch (err) {
+        console.log("error occured");
         // Style this to show error on screen
         console.log(err?.data?.message || err.error);
       }
@@ -81,8 +82,7 @@ const SignUp = () => {
           onChange={(e) => setName(e.target.value)}
           autoFocus
           required
-          // error
-        ></TextField>
+        />
 
         <TextField
           margin="dense"
@@ -92,7 +92,7 @@ const SignUp = () => {
           value={email}
           required
           onChange={(e) => setEmail(e.target.value)}
-        ></TextField>
+        />
 
         {/* <TextField
           fullWidth
@@ -145,7 +145,7 @@ const SignUp = () => {
           value={confirmPassword}
           required
           onChange={(e) => setConfirmPassword(e.target.value)}
-        ></TextField>
+        />
 
         <div className="relative my-3 w-full">
           {isLoading && <Loader />}
