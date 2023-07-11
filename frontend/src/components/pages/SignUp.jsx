@@ -62,7 +62,7 @@ const SignUp = () => {
   return (
     <FormContainer>
       <form
-        action="/register"
+        action="/"
         method="post"
         onSubmit={handleSubmit}
         className="flex flex-col items-center w-full px-10 "
