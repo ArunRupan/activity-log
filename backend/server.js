@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import cors from "cors";
 import dotenv from "dotenv";
 import { notFound, errorHandler } from "./middleware/errorM.js";
 import userRoutes from "./routes/userRoutes.js";
@@ -13,6 +14,8 @@ connectDB();
 const port = process.env.PORT || 5000;
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
