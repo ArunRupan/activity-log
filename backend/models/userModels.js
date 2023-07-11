@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
+const rounds = process.env.ROUNDS;
+
 const userSchema = mongoose.Schema(
   {
     name: {
@@ -33,7 +35,7 @@ userSchema.pre("save", async function (next) {
     next();
   }
 
-  const salt = await bcrypt.genSalt(process.env.ROUNDS);
+  const salt = await bcrypt.genSalt(rounds);
   this.password = await bcrypt.hash(this.password, salt);
 });
 
