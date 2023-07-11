@@ -76,7 +76,7 @@ const SignUp = () => {
         </Typography>
         <TextField
           fullWidth
-          type="name"
+          type="text"
           label="Enter username"
           value={name}
           onChange={(e) => setName(e.target.value)}
