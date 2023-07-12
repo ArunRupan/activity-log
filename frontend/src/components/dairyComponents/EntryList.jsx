@@ -69,18 +69,22 @@ const EntryList = () => {
       </div>
 
       {/* Month Links */}
-      <div className="flex flex-col md:w-2/3 mx-auto">
-        <div className="w-[60%] mb-5 mx-auto bg-stone-300 ">
-          {mArr.map((month) => (
-            <button key={month} onClick={() => setCurrMonth(month)}>
-              {/* <button key={month} onClick={() => setCurrMonth(month)}> */}
-              {formatMonth(month)}
-            </button>
-          ))}
-        </div>
+      <div className="w-[80%] flex overflow-x-auto mb-5 mx-auto bg-stone-300">
+        {mArr.map((month) => (
+          <button
+            className="flex-1"
+            key={month}
+            onClick={() => setCurrMonth(month)}
+          >
+            {/* <button key={month} onClick={() => setCurrMonth(month)}> */}
+            {formatMonth(month)}
+          </button>
+        ))}
+      </div>
 
+      <div className="flex flex-col md:w-2/3 mx-auto pb-20">
         {/* Task List */}
-        <div className="m-6">
+        <div className="md:m-6">
           {monthTasks.map((q) => (
             <div key={q.id}>
               {/* day tasks map  */}

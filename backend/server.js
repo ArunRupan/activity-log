@@ -2,16 +2,15 @@ import express from "express";
 import path from "path";
 import cors from "cors";
 import dotenv from "dotenv";
-import { notFound, errorHandler } from "./middleware/errorM.js";
-import userRoutes from "./routes/userRoutes.js";
+dotenv.config();
 import connectDB from "./config/db.js";
 import cookieParser from "cookie-parser";
-
-dotenv.config();
-
-connectDB();
+import { notFound, errorHandler } from "./middleware/errorM.js";
+import userRoutes from "./routes/userRoutes.js";
 
 const port = process.env.PORT || 5000;
+
+connectDB();
 
 const app = express();
 

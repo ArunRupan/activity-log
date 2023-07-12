@@ -75,12 +75,13 @@ const EntryItem = ({ id, task }) => {
   // }
 
   return (
-    <div className=" mx-2 p-2 relative border">
+    <div className=" md:mx-2 p-2 relative">
       {isEditing ? (
-        <div className="flex">
-          <div className="w-[85%] me-3">
+        <div className="md:flex">
+          <div className="md:w-[85%] md:me-3">
             <input
-              className="w-full my-3 p-3 text-2xl"
+              autoFocus
+              className="w-full my-3 p-3 text-2xl border-b border-slate-900 bg-slate-300"
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
@@ -93,8 +94,8 @@ const EntryItem = ({ id, task }) => {
             />
             {/* </div> */}
           </div>
-          <div className="w-[15%] relative">
-            <div className="absolute bottom-2 text-white right-0 flex flex-col gap-1 w-full">
+          <div className="md:w-[15%] relative">
+            <div className="md:absolute bottom-2 text-white right-0 flex md:flex-col gap-1 w-full">
               <button
                 className="bg-green-700 flex justify-center w-full"
                 onClick={() => handleSave()}
@@ -112,22 +113,24 @@ const EntryItem = ({ id, task }) => {
         </div>
       ) : (
         <>
-          <div className="flex">
-            {/* body */}
-            <div className="p-3 w-[85%] min-h-[160px] relative text-ellipsis">
-              <p className="py-2 text-2xl">{task.title}</p>
-              {/* <div
+          <div className="flex flex-col md:flex-row">
+            <div>
+              {/* body */}
+              <div className="p-3 md:w-[85%] min-h-[160px] relative  text-ellipsis">
+                <p className="py-2 text-2xl">{task.title}</p>
+                {/* <div
               className="py-2 whitespace-pre-wrap"
               dangerouslySetInnerHTML={createMarkup(description)}
             ></div> */}
-              <div className="py-2 mb-9 whitespace-pre" id={id}></div>
-              <div className="absolute bottom-0 left-0 flex gap-3 p-2">
-                {/* Time */}
-                <p className="bg-slate-700 rounded-xl p-2 text-xs w-fit text-white">
+                <div className="py-2 md:mb-9 whitespace-pre" id={id}></div>
+              </div>
+              {/* Time */}
+              <div className="flex gap-3 p-2 justify-between  ">
+                <p className="bg-slate-700 rounded-xl p-2 text-[10px]  w-fit text-white">
                   {formatDay(task.date)}
                 </p>
                 {task.edited && (
-                  <p className="bg-slate-700 rounded-xl p-2 text-xs w-fit text-white">
+                  <p className="bg-slate-700 rounded-xl p-2 text-[10px] w-fit text-white">
                     <Update fontSize="inherit" /> updated on
                     {formatTime(task.time)}
                   </p>
@@ -135,13 +138,16 @@ const EntryItem = ({ id, task }) => {
               </div>
             </div>
             {/* Buttons */}
-            <div className="my-2 w-[15%] relative text-center">
-              <div className="absolute bottom-0 right-0 flex flex-col gap-1 w-full">
-                <button className="bg-[#822cb2]" onClick={handleEdit}>
-                  <EditIcon className="text-white" />
-                </button>
-                <button className="bg-[#c22525]" onClick={() => removeEntry()}>
+            <div className="my-2 md:w-[15%] relative text-center">
+              <div className="md:absolute bottom-0 right-0  flex md:flex-col gap-1 w-full">
+                <button
+                  className="bg-[#c22525] w-1/2"
+                  onClick={() => removeEntry()}
+                >
                   <DeleteIcon className="text-white" />
+                </button>
+                <button className="bg-[#822cb2] w-1/2" onClick={handleEdit}>
+                  <EditIcon className="text-white" />
                 </button>
               </div>
             </div>

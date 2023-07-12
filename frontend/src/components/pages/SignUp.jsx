@@ -32,9 +32,9 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { userInfo } = useSelector((state) => state.auth);
-
   const [register, { isLoading }] = useRegisterMutation();
+
+  const { userInfo } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (userInfo) {
@@ -50,11 +50,13 @@ const SignUp = () => {
     } else {
       try {
         const res = await register({ name, email, password }).unwrap();
+        console.log(res);
         dispatch(setCredentials({ ...res }));
         navigate("/home");
       } catch (err) {
         // Style this to show error on screen
         console.log(err?.data?.message || err.error);
+        // navigate("/login");
       }
     }
   };

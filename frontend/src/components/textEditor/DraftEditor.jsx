@@ -50,8 +50,8 @@ const DraftEditor = ({ description, setDescription }) => {
   };
 
   return (
-    <div className="border p-3 ">
-      <div className="flex">
+    <div className="border p-3 relative">
+      <div className="flex flex-wrap sticky">
         <BlockStyles editorState={editorState} onToggle={blockToggle} />
         <InlineStyle editorState={editorState} onToggle={inlineToggle} />
       </div>
