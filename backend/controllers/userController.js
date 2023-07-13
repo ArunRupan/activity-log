@@ -7,12 +7,12 @@ import generateToken from "../utils/genToken.js";
 // @access  Public
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
-  console.log(res);
 
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
-    generateToken(res, user);
+    generateToken(res, user._id);
+    console.log("userid=>", user._id);
 
     res.json({
       _id: user._id,
