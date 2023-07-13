@@ -19,7 +19,11 @@ app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
-    origin: ["https://activity-log.netlify.app/", "http://localhost:3000/"],
+    origin: [
+      "https://activity-log.netlify.app/",
+      "http://localhost:3000/",
+      "https://activity-log-20np.onrender.com/api/users/auth",
+    ],
   })
 );
 
