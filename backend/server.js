@@ -19,6 +19,10 @@ app.use(cookieParser());
 app.use(
   cors({
     credentials: true,
+    origin: [
+      "https://activity-log.netlify.app/",
+      "https://activity-log.netlify.app/login",
+    ],
   })
 );
 
