@@ -17,12 +17,10 @@ const app = express();
 app.use(cookieParser());
 
 app.use(
-  cors()
-  // credentials: true,
-  // origin: [
-  //   "https://activity-log.netlify.app/login",
-  // ],
-  // })
+  cors({
+    // credentials: true,
+    origin: "https://activity-log.netlify.app",
+  })
 );
 
 app.use(express.json());
