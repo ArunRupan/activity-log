@@ -14,12 +14,12 @@ connectDB();
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: ["https://activity-log-20np.onrender.com/"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: "https://activity-log-20np.onrender.com/",
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
