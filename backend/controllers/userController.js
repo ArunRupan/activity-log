@@ -14,7 +14,7 @@ const authUser = asyncHandler(async (req, res) => {
 
   if (user && (await user.matchPassword(password))) {
     // generateToken(res, user._id);
-    const token = jwt.sign({ email }, process.env.JWT_TOKEN, {
+    const token = jwt.sign({ id: user._id.toString() }, process.env.JWT_TOKEN, {
       expiresIn: "30d",
     });
 
