@@ -79,7 +79,7 @@ const initialState = [
 
 const addEntrySlice = createSlice({
   name: "entries",
-  initialState,
+
   reducers: {
     addEntries: (state, action) => {
       const entry = {
@@ -104,6 +104,7 @@ const addEntrySlice = createSlice({
       return state.filter((item) => item.id !== action.payload.id);
     },
   },
+  initialState,
 });
 
 export const { addEntries, deleteEntry, updateEntry } = addEntrySlice.actions;

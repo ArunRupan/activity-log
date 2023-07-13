@@ -16,7 +16,6 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://activity-log-20np.onrender.com/",
     credentials: true,
   })
 );
