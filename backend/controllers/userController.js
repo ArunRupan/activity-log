@@ -1,7 +1,6 @@
 import asyncHandler from "express-async-handler";
 import User from "../models/userModels.js";
 import generateToken from "../utils/genToken.js";
-import jwt from "jsonwebtoken";
 
 // @desc    Auth user & get token
 // @route   POST /api/users/auth
@@ -13,16 +12,7 @@ const authUser = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
-    // generateToken(res, user._id);
-    const token = jwt.sign({ id: user._id.toString() }, "SECRET", {
-      expiresIn: "30d",
-    });
-
-    res.cookie("jwt", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV !== "development", // Use secure cookies in production
-      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-    });
+    generateToken(res, user._id);
 
     res.json({
       _id: user._id,
