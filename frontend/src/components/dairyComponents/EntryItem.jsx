@@ -159,11 +159,14 @@ const EntryItem = ({ id, task }) => {
 };
 
 function formatTime(dt) {
-  const fDay = new Date(dt).toLocaleDateString("en-in", {
-    month: "2-digit",
-    year: "2-digit",
+  const date = Date(dt);
+  const fDay = new Date(date).toLocaleDateString("en-in", {
+    dateStyle: "short",
+    // day: "2-digit",
+    // month: "2-digit",
+    // year: "2-digit",
   });
-  const fTime = new Date(dt).toLocaleTimeString("en-in", {
+  const fTime = new Date(date).toLocaleTimeString("en-in", {
     timeStyle: "short",
   });
   return ` ${fDay} at ${fTime}`;

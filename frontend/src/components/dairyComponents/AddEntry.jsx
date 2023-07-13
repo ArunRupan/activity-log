@@ -27,9 +27,9 @@ const AddEntry = ({ open, setOpen }) => {
       addEntries({
         title: title,
         description: description,
-        date: new Date().toLocaleString(),
+        date: new Date().toString(),
         edited: false,
-        time: new Date().toLocaleString(),
+        time: new Date().toString(),
       })
     );
     setTitle("");
