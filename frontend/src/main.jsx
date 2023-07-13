@@ -16,7 +16,7 @@ import WelcomePage from "./components/pages/WelcomePage";
 import SignIn from "./components/pages/SignIn";
 import SignUp from "./components/pages/SignUp";
 import Dairy from "./components/pages/Dairy";
-import ResetPage from "./components/pages/ResetPage";
+// import ResetPage from "./components/pages/ResetPage";
 
 const PrivateRoute = lazy(() => import("./components/PrivateRoute"));
 const Profile = lazy(() => import("./components/pages/Profile"));
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
       <Route path="/login" element={<SignIn />} />
       <Route path="/register" element={<SignUp />} />
       <Route path="/guest" element={<Dairy />} />
-      <Route path="/password-reset" element={<ResetPage />} />
+      {/* <Route path="/password-reset" element={<ResetPage />} /> */}
 
       {/* ===== Private Route ========================== */}
 
