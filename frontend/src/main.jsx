@@ -27,13 +27,13 @@ const router = createBrowserRouter(
       <Route index={true} path="/" element={<WelcomePage />} />
       <Route path="/login" element={<SignIn />} />
       <Route path="/register" element={<SignUp />} />
-      <Route path="/guest" element={<Dairy />} />
+      <Route path="/guest" id="guest" element={<Dairy />} />
       {/* <Route path="/password-reset" element={<ResetPage />} /> */}
 
       {/* ===== Private Route ========================== */}
 
       <Route path="" element={<PrivateRoute />}>
-        <Route path="/home" element={<Dairy />} />
+        <Route path="/home" id="user" element={<Dairy />} />
         <Route path="/profile" element={<Profile />} />
       </Route>
 

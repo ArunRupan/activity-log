@@ -12,7 +12,6 @@ const authUser = asyncHandler(async (req, res) => {
 
   if (user && (await user.matchPassword(password))) {
     generateToken(res, user._id);
-    console.log("userid=>", user._id);
 
     res.json({
       _id: user._id,
@@ -43,8 +42,6 @@ const regUser = asyncHandler(async (req, res) => {
 
   if (user) {
     generateToken(res, user._id);
-    console.log(res);
-    console.log(user._id);
 
     res.status(201).json({
       _id: user._id,
